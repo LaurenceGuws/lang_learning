@@ -1,0 +1,60 @@
+
+# Byte-compiled and temporary files
+*.pyc
+*.pyo
+*.class
+*.o
+*.out
+*.exe
+*.obj
+*.luac
+*.bak
+*~
+*.swp
+*.tmp
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Build & dist directories
+/build/
+/dist/
+/bin/
+/target/
+/out/
+/zig-cache/
+/zig-out/
+/CMakeFiles/
+/__pycache__/
+/node_modules/
+
+# Editor/IDE configs
+.vscode/
+.idea/
+*.suo
+*.user
+*.iml
+*.ncb
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+
+# Rust
+/target/
+
+# Go
+*.test
+
+# CMake
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Neovim plugins & backups
+packer_compiled.lua
+nvim-data/

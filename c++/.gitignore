@@ -1,0 +1,22 @@
+
+# Build results
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# User-specific files
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+
+# Visual Studio
+.vscode/
+*.vs/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/

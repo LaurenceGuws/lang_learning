@@ -1,0 +1,6 @@
+
+# Lua bytecode
+*.luac
+
+# Build tools or scripts
+/build/

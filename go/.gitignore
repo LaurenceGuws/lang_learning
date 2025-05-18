@@ -1,0 +1,11 @@
+
+# Binaries
+*.exe
+*.out
+
+# Go build output
+/bin/
+/pkg/
+
+# Module cache
+go.sum
