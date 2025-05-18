@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="potholes-rest" context="/default" version="v1"
+    version-type="context" publishSwagger="gov:mi-resources/api-definitions/potholes-rest.json">
+    <resource methods="GET" url-mapping="/api/potholes">
+        <inSequence><!--This
+            is generated API skeleton.--><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="OPTIONS" url-mapping="/api/potholes">
+        <inSequence><!--This
+            is generated API skeleton.--><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="POST" url-mapping="/api/potholes">
+        <inSequence><!--This
+            is generated API skeleton.--><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="DELETE" uri-template="/api/potholes/{pothole_id}">
+        <inSequence><!--This
+            is generated API skeleton.-->
+            <property name="pothole_id" expression="get-property('uri.var.pothole_id')" /><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="GET" uri-template="/api/potholes/{pothole_id}">
+        <inSequence><!--This
+            is generated API skeleton.-->
+            <property name="pothole_id" expression="get-property('uri.var.pothole_id')" /><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="OPTIONS" uri-template="/api/potholes/{pothole_id}">
+        <inSequence><!--This
+            is generated API skeleton.-->
+            <property name="pothole_id" expression="get-property('uri.var.pothole_id')" /><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="PUT" uri-template="/api/potholes/{pothole_id}">
+        <inSequence><!--This
+            is generated API skeleton.-->
+            <property name="pothole_id" expression="get-property('uri.var.pothole_id')" /><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="GET" url-mapping="/api/users">
+        <inSequence><!--This
+            is generated API skeleton.--><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="OPTIONS" url-mapping="/api/users">
+        <inSequence><!--This
+            is generated API skeleton.--><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="POST" url-mapping="/api/users">
+        <inSequence><!--This
+            is generated API skeleton.--><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="DELETE" uri-template="/api/users/{user_id}">
+        <inSequence><!--This
+            is generated API skeleton.-->
+            <property name="user_id" expression="get-property('uri.var.user_id')" /><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="GET" uri-template="/api/users/{user_id}">
+        <inSequence><!--This
+            is generated API skeleton.-->
+            <property name="user_id" expression="get-property('uri.var.user_id')" /><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="OPTIONS" uri-template="/api/users/{user_id}">
+        <inSequence><!--This
+            is generated API skeleton.-->
+            <property name="user_id" expression="get-property('uri.var.user_id')" /><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+    <resource methods="PUT" uri-template="/api/users/{user_id}">
+        <inSequence><!--This
+            is generated API skeleton.-->
+            <property name="user_id" expression="get-property('uri.var.user_id')" /><!--Business
+            Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args />
+            </payloadFactory>
+            <loopback />
+        </inSequence>
+        <outSequence>
+            <respond />
+        </outSequence>
+        <faultSequence />
+    </resource>
+</api>

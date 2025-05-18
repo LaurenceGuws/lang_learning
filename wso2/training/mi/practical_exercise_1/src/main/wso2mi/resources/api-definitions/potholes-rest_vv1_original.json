@@ -1,0 +1,207 @@
+{
+    "info": {
+      "title": "Pothole Tracker API",
+      "version": "v1"
+    },
+    "paths": {
+      "/api/potholes": {
+        "get": {
+          "parameters": [],
+          "responses": {
+  
+          },
+          "tags": [
+            "Potholes"
+          ]
+        },
+        "options": {
+          "parameters": [],
+          "responses": {
+  
+          },
+          "tags": [
+            "Potholes"
+          ]
+        },
+        "post": {
+          "parameters": [],
+          "responses": {
+  
+          },
+          "tags": [
+            "Potholes"
+          ]
+        }
+      },
+      "/api/potholes/{pothole_id}": {
+        "delete": {
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "pothole_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+  
+          },
+          "tags": [
+            "Potholes"
+          ]
+        },
+        "get": {
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "pothole_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+  
+          },
+          "tags": [
+            "Potholes"
+          ]
+        },
+        "options": {
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "pothole_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+  
+          },
+          "tags": [
+            "Potholes"
+          ]
+        },
+        "put": {
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "pothole_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+  
+          },
+          "tags": [
+            "Potholes"
+          ]
+        }
+      },
+      "/api/users": {
+        "get": {
+          "parameters": [],
+          "responses": {
+  
+          },
+          "tags": [
+            "Users"
+          ]
+        },
+        "options": {
+          "parameters": [],
+          "responses": {
+  
+          },
+          "tags": [
+            "Users"
+          ]
+        },
+        "post": {
+          "parameters": [],
+          "responses": {
+  
+          },
+          "tags": [
+            "Users"
+          ]
+        }
+      },
+      "/api/users/{user_id}": {
+        "delete": {
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "user_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+  
+          },
+          "tags": [
+            "Users"
+          ]
+        },
+        "get": {
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "user_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+  
+          },
+          "tags": [
+            "Users"
+          ]
+        },
+        "options": {
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "user_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+  
+          },
+          "tags": [
+            "Users"
+          ]
+        },
+        "put": {
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "user_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+  
+          },
+          "tags": [
+            "Users"
+          ]
+        }
+      }
+    },
+    "swagger": "2.0"
+  }

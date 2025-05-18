@@ -1,0 +1,10 @@
+---
+key: "potholes-rest-v1"
+name : "potholes-rest"
+displayName : "potholes-rest"
+description: "potholes-rest"
+version: "v1"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/default"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false

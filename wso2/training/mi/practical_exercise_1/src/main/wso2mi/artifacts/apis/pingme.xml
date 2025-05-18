@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/pingme" name="pingme" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/">
+        <inSequence>
+            <log category="DEBUG" logMessageID="true" logFullPayload="false">
+                <message></message>
+            </log>
+            <payloadFactory media-type="json" template-type="default">
+
+                <format>
+                    {"message": "I'm alive and well!"}</format>
+            </payloadFactory>
+            <respond />
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
+</api>

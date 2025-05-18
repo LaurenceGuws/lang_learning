@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<artifacts>
+  <artifact name="resources_api-definitions_potholes-soap_v1_0_0" groupId="com.microintegrator.projects" version="1.0.0" type="registry/resource" serverRole="EnterpriseIntegrator">
+    <item>
+      <file>potholes-soap_v1.0.0</file>
+      <path>/_system/governance/mi-resources/api-definitions</path>
+      <mediaType>application/yaml</mediaType>
+      <properties></properties>
+    </item>
+  </artifact>
+  <artifact name="resources_api-definitions_potholes-rest_vv1_json" groupId="com.microintegrator.projects" version="1.0.0" type="registry/resource" serverRole="EnterpriseIntegrator">
+    <item>
+      <file>potholes-rest_vv1.json</file>
+      <path>/_system/governance/mi-resources/api-definitions</path>
+      <mediaType>application/yaml</mediaType>
+      <properties/>
+    </item>
+  </artifact>
+</artifacts>

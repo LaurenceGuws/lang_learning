@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: pingme
+  description: API Definition of pingme
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/pingme
+paths:
+  /:
+    get:
+      responses:
+        default:
+          description: Default response

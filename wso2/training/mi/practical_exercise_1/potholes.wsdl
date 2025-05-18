@@ -1,0 +1,469 @@
+<wsdl:definitions xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:plink="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+    xmlns:wsdlsoap11="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdlsoap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap11enc="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:soap12env="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing"
+    xmlns:xop="http://www.w3.org/2004/08/xop/include"
+    xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+    xmlns:tns="http://pothole.tracker.service"
+    xmlns:s0="soap" targetNamespace="http://pothole.tracker.service" name="Application">
+    <wsdl:types>
+        <xs:schema targetNamespace="http://pothole.tracker.service" elementFormDefault="qualified">
+            <xs:import namespace="soap"/>
+            <xs:complexType name="get_all_potholes"/>
+            <xs:complexType name="get_all_users"/>
+            <xs:complexType name="create_pothole">
+                <xs:sequence>
+                    <xs:element name="street_name" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="reported_by" type="xs:integer" minOccurs="0" nillable="true"/>
+                    <xs:element name="latitude" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="longitude" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="diameter_cm" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="description" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="status" type="xs:string" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="create_potholeResponse">
+                <xs:sequence>
+                    <xs:element name="create_potholeResult" type="xs:integer" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="create_user">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="email" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="role" type="xs:string" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="create_userResponse">
+                <xs:sequence>
+                    <xs:element name="create_userResult" type="xs:integer" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="delete_pothole">
+                <xs:sequence>
+                    <xs:element name="pothole_id" type="xs:integer" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="delete_potholeResponse">
+                <xs:sequence>
+                    <xs:element name="delete_potholeResult" type="xs:boolean" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="delete_user">
+                <xs:sequence>
+                    <xs:element name="user_id" type="xs:integer" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="delete_userResponse">
+                <xs:sequence>
+                    <xs:element name="delete_userResult" type="xs:boolean" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_pothole">
+                <xs:sequence>
+                    <xs:element name="pothole_id" type="xs:integer" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_potholes_by_reporter">
+                <xs:sequence>
+                    <xs:element name="user_id" type="xs:integer" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_potholes_by_reporterResponse">
+                <xs:sequence>
+                    <xs:element name="get_potholes_by_reporterResult" type="s0:PotholeModelArray" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_potholes_by_status">
+                <xs:sequence>
+                    <xs:element name="status" type="xs:string" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_potholes_by_statusResponse">
+                <xs:sequence>
+                    <xs:element name="get_potholes_by_statusResult" type="s0:PotholeModelArray" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_user">
+                <xs:sequence>
+                    <xs:element name="user_id" type="xs:integer" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="update_pothole">
+                <xs:sequence>
+                    <xs:element name="pothole_id" type="xs:integer" minOccurs="0" nillable="true"/>
+                    <xs:element name="street_name" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="reported_by" type="xs:integer" minOccurs="0" nillable="true"/>
+                    <xs:element name="latitude" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="longitude" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="diameter_cm" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="description" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="status" type="xs:string" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="update_user">
+                <xs:sequence>
+                    <xs:element name="user_id" type="xs:integer" minOccurs="0" nillable="true"/>
+                    <xs:element name="name" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="email" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="role" type="xs:string" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_all_potholesResponse">
+                <xs:sequence>
+                    <xs:element name="get_all_potholesResult" type="s0:PotholeModelArray" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_all_usersResponse">
+                <xs:sequence>
+                    <xs:element name="get_all_usersResult" type="s0:UserModelArray" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_potholeResponse">
+                <xs:sequence>
+                    <xs:element name="get_potholeResult" type="s0:PotholeModel" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="get_userResponse">
+                <xs:sequence>
+                    <xs:element name="get_userResult" type="s0:UserModel" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="update_potholeResponse">
+                <xs:sequence>
+                    <xs:element name="update_potholeResult" type="s0:PotholeModel" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="update_userResponse">
+                <xs:sequence>
+                    <xs:element name="update_userResult" type="s0:UserModel" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="get_all_potholes" type="tns:get_all_potholes"/>
+            <xs:element name="get_all_users" type="tns:get_all_users"/>
+            <xs:element name="create_pothole" type="tns:create_pothole"/>
+            <xs:element name="create_potholeResponse" type="tns:create_potholeResponse"/>
+            <xs:element name="create_user" type="tns:create_user"/>
+            <xs:element name="create_userResponse" type="tns:create_userResponse"/>
+            <xs:element name="delete_pothole" type="tns:delete_pothole"/>
+            <xs:element name="delete_potholeResponse" type="tns:delete_potholeResponse"/>
+            <xs:element name="delete_user" type="tns:delete_user"/>
+            <xs:element name="delete_userResponse" type="tns:delete_userResponse"/>
+            <xs:element name="get_pothole" type="tns:get_pothole"/>
+            <xs:element name="get_potholes_by_reporter" type="tns:get_potholes_by_reporter"/>
+            <xs:element name="get_potholes_by_reporterResponse" type="tns:get_potholes_by_reporterResponse"/>
+            <xs:element name="get_potholes_by_status" type="tns:get_potholes_by_status"/>
+            <xs:element name="get_potholes_by_statusResponse" type="tns:get_potholes_by_statusResponse"/>
+            <xs:element name="get_user" type="tns:get_user"/>
+            <xs:element name="update_pothole" type="tns:update_pothole"/>
+            <xs:element name="update_user" type="tns:update_user"/>
+            <xs:element name="get_all_potholesResponse" type="tns:get_all_potholesResponse"/>
+            <xs:element name="get_all_usersResponse" type="tns:get_all_usersResponse"/>
+            <xs:element name="get_potholeResponse" type="tns:get_potholeResponse"/>
+            <xs:element name="get_userResponse" type="tns:get_userResponse"/>
+            <xs:element name="update_potholeResponse" type="tns:update_potholeResponse"/>
+            <xs:element name="update_userResponse" type="tns:update_userResponse"/>
+        </xs:schema>
+        <xs:schema targetNamespace="soap" elementFormDefault="qualified">
+            <xs:complexType name="PotholeModel">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+                    <xs:element name="street_name" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="reported_by" type="xs:integer" minOccurs="0" nillable="true"/>
+                    <xs:element name="latitude" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="longitude" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="diameter_cm" type="xs:float" minOccurs="0" nillable="true"/>
+                    <xs:element name="description" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="status" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="created_at" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="updated_at" type="xs:string" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="UserModel">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+                    <xs:element name="name" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="email" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="role" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="created_at" type="xs:string" minOccurs="0" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PotholeModelArray">
+                <xs:sequence>
+                    <xs:element name="PotholeModel" type="s0:PotholeModel" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="UserModelArray">
+                <xs:sequence>
+                    <xs:element name="UserModel" type="s0:UserModel" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="PotholeModel" type="s0:PotholeModel"/>
+            <xs:element name="UserModel" type="s0:UserModel"/>
+            <xs:element name="PotholeModelArray" type="s0:PotholeModelArray"/>
+            <xs:element name="UserModelArray" type="s0:UserModelArray"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="get_user">
+        <wsdl:part name="get_user" element="tns:get_user"/>
+    </wsdl:message>
+    <wsdl:message name="get_userResponse">
+        <wsdl:part name="get_userResponse" element="tns:get_userResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_all_users">
+        <wsdl:part name="get_all_users" element="tns:get_all_users"/>
+    </wsdl:message>
+    <wsdl:message name="get_all_usersResponse">
+        <wsdl:part name="get_all_usersResponse" element="tns:get_all_usersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="create_user">
+        <wsdl:part name="create_user" element="tns:create_user"/>
+    </wsdl:message>
+    <wsdl:message name="create_userResponse">
+        <wsdl:part name="create_userResponse" element="tns:create_userResponse"/>
+    </wsdl:message>
+    <wsdl:message name="update_user">
+        <wsdl:part name="update_user" element="tns:update_user"/>
+    </wsdl:message>
+    <wsdl:message name="update_userResponse">
+        <wsdl:part name="update_userResponse" element="tns:update_userResponse"/>
+    </wsdl:message>
+    <wsdl:message name="delete_user">
+        <wsdl:part name="delete_user" element="tns:delete_user"/>
+    </wsdl:message>
+    <wsdl:message name="delete_userResponse">
+        <wsdl:part name="delete_userResponse" element="tns:delete_userResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_pothole">
+        <wsdl:part name="get_pothole" element="tns:get_pothole"/>
+    </wsdl:message>
+    <wsdl:message name="get_potholeResponse">
+        <wsdl:part name="get_potholeResponse" element="tns:get_potholeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_all_potholes">
+        <wsdl:part name="get_all_potholes" element="tns:get_all_potholes"/>
+    </wsdl:message>
+    <wsdl:message name="get_all_potholesResponse">
+        <wsdl:part name="get_all_potholesResponse" element="tns:get_all_potholesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_potholes_by_status">
+        <wsdl:part name="get_potholes_by_status" element="tns:get_potholes_by_status"/>
+    </wsdl:message>
+    <wsdl:message name="get_potholes_by_statusResponse">
+        <wsdl:part name="get_potholes_by_statusResponse" element="tns:get_potholes_by_statusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="get_potholes_by_reporter">
+        <wsdl:part name="get_potholes_by_reporter" element="tns:get_potholes_by_reporter"/>
+    </wsdl:message>
+    <wsdl:message name="get_potholes_by_reporterResponse">
+        <wsdl:part name="get_potholes_by_reporterResponse" element="tns:get_potholes_by_reporterResponse"/>
+    </wsdl:message>
+    <wsdl:message name="create_pothole">
+        <wsdl:part name="create_pothole" element="tns:create_pothole"/>
+    </wsdl:message>
+    <wsdl:message name="create_potholeResponse">
+        <wsdl:part name="create_potholeResponse" element="tns:create_potholeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="update_pothole">
+        <wsdl:part name="update_pothole" element="tns:update_pothole"/>
+    </wsdl:message>
+    <wsdl:message name="update_potholeResponse">
+        <wsdl:part name="update_potholeResponse" element="tns:update_potholeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="delete_pothole">
+        <wsdl:part name="delete_pothole" element="tns:delete_pothole"/>
+    </wsdl:message>
+    <wsdl:message name="delete_potholeResponse">
+        <wsdl:part name="delete_potholeResponse" element="tns:delete_potholeResponse"/>
+    </wsdl:message>
+    <wsdl:service name="UserService">
+        <wsdl:port name="Application" binding="tns:Application">
+            <wsdlsoap11:address location="http://localhost:8001/"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:service name="PotholeService">
+        <wsdl:port name="Application" binding="tns:Application">
+            <wsdlsoap11:address location="http://localhost:8001/"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="Application">
+        <wsdl:operation name="get_user" parameterOrder="get_user">
+            <wsdl:documentation>Get a user by ID.</wsdl:documentation>
+            <wsdl:input name="get_user" message="tns:get_user"/>
+            <wsdl:output name="get_userResponse" message="tns:get_userResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_all_users" parameterOrder="get_all_users">
+            <wsdl:documentation>Get all users.</wsdl:documentation>
+            <wsdl:input name="get_all_users" message="tns:get_all_users"/>
+            <wsdl:output name="get_all_usersResponse" message="tns:get_all_usersResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="create_user" parameterOrder="create_user">
+            <wsdl:documentation>Create a new user.</wsdl:documentation>
+            <wsdl:input name="create_user" message="tns:create_user"/>
+            <wsdl:output name="create_userResponse" message="tns:create_userResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="update_user" parameterOrder="update_user">
+            <wsdl:documentation>Update an existing user.</wsdl:documentation>
+            <wsdl:input name="update_user" message="tns:update_user"/>
+            <wsdl:output name="update_userResponse" message="tns:update_userResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="delete_user" parameterOrder="delete_user">
+            <wsdl:documentation>Delete a user.</wsdl:documentation>
+            <wsdl:input name="delete_user" message="tns:delete_user"/>
+            <wsdl:output name="delete_userResponse" message="tns:delete_userResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_pothole" parameterOrder="get_pothole">
+            <wsdl:documentation>Get a pothole by ID.</wsdl:documentation>
+            <wsdl:input name="get_pothole" message="tns:get_pothole"/>
+            <wsdl:output name="get_potholeResponse" message="tns:get_potholeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_all_potholes" parameterOrder="get_all_potholes">
+            <wsdl:documentation>Get all potholes.</wsdl:documentation>
+            <wsdl:input name="get_all_potholes" message="tns:get_all_potholes"/>
+            <wsdl:output name="get_all_potholesResponse" message="tns:get_all_potholesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_potholes_by_status" parameterOrder="get_potholes_by_status">
+            <wsdl:documentation>Get potholes by status.</wsdl:documentation>
+            <wsdl:input name="get_potholes_by_status" message="tns:get_potholes_by_status"/>
+            <wsdl:output name="get_potholes_by_statusResponse" message="tns:get_potholes_by_statusResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="get_potholes_by_reporter" parameterOrder="get_potholes_by_reporter">
+            <wsdl:documentation>Get potholes reported by a specific user.</wsdl:documentation>
+            <wsdl:input name="get_potholes_by_reporter" message="tns:get_potholes_by_reporter"/>
+            <wsdl:output name="get_potholes_by_reporterResponse" message="tns:get_potholes_by_reporterResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="create_pothole" parameterOrder="create_pothole">
+            <wsdl:documentation>Create a new pothole report.</wsdl:documentation>
+            <wsdl:input name="create_pothole" message="tns:create_pothole"/>
+            <wsdl:output name="create_potholeResponse" message="tns:create_potholeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="update_pothole" parameterOrder="update_pothole">
+            <wsdl:documentation>Update an existing pothole.</wsdl:documentation>
+            <wsdl:input name="update_pothole" message="tns:update_pothole"/>
+            <wsdl:output name="update_potholeResponse" message="tns:update_potholeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="delete_pothole" parameterOrder="delete_pothole">
+            <wsdl:documentation>Delete a pothole.</wsdl:documentation>
+            <wsdl:input name="delete_pothole" message="tns:delete_pothole"/>
+            <wsdl:output name="delete_potholeResponse" message="tns:delete_potholeResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="Application" type="tns:Application">
+        <wsdlsoap11:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="get_user">
+            <wsdlsoap11:operation soapAction="get_user" style="document"/>
+            <wsdl:input name="get_user">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="get_userResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_all_users">
+            <wsdlsoap11:operation soapAction="get_all_users" style="document"/>
+            <wsdl:input name="get_all_users">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="get_all_usersResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="create_user">
+            <wsdlsoap11:operation soapAction="create_user" style="document"/>
+            <wsdl:input name="create_user">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="create_userResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_user">
+            <wsdlsoap11:operation soapAction="update_user" style="document"/>
+            <wsdl:input name="update_user">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="update_userResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_user">
+            <wsdlsoap11:operation soapAction="delete_user" style="document"/>
+            <wsdl:input name="delete_user">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="delete_userResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_pothole">
+            <wsdlsoap11:operation soapAction="get_pothole" style="document"/>
+            <wsdl:input name="get_pothole">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="get_potholeResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_all_potholes">
+            <wsdlsoap11:operation soapAction="get_all_potholes" style="document"/>
+            <wsdl:input name="get_all_potholes">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="get_all_potholesResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_potholes_by_status">
+            <wsdlsoap11:operation soapAction="get_potholes_by_status" style="document"/>
+            <wsdl:input name="get_potholes_by_status">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="get_potholes_by_statusResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="get_potholes_by_reporter">
+            <wsdlsoap11:operation soapAction="get_potholes_by_reporter" style="document"/>
+            <wsdl:input name="get_potholes_by_reporter">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="get_potholes_by_reporterResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="create_pothole">
+            <wsdlsoap11:operation soapAction="create_pothole" style="document"/>
+            <wsdl:input name="create_pothole">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="create_potholeResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_pothole">
+            <wsdlsoap11:operation soapAction="update_pothole" style="document"/>
+            <wsdl:input name="update_pothole">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="update_potholeResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_pothole">
+            <wsdlsoap11:operation soapAction="delete_pothole" style="document"/>
+            <wsdl:input name="delete_pothole">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="delete_potholeResponse">
+                <wsdlsoap11:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
