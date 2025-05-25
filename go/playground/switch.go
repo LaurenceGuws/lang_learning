@@ -20,8 +20,10 @@ func main() {
 	case "windows":
 		fmt.Println("Windows... Life is pain 󰨡 -> ")	
 		fmt.Printf("Rocking the %s life \n", arch)
-		fmt.Println("Not my failt if you don't use nerd fonts.. ")
-
+		fmt.Println("Not my fault you don't use nerd fonts.. ")
+	
+	case "android":
+		fmt.Printf("%s like true hackers   󰶤 󰶤 󰶤/n")
 	default:
 		fmt.Printf("%s \n", os)
 		fmt.Printf("Rocking the %s life \n", arch)
