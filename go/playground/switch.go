@@ -23,7 +23,7 @@ func main() {
 		fmt.Println("Not my fault you don't use nerd fonts.. ")
 	
 	case "android":
-		fmt.Printf("%s like true hackers   󰶤 󰶤 󰶤/n")
+		fmt.Printf("%s like true hackers   󰶤 󰶤 󰶤/n", os)
 	default:
 		fmt.Printf("%s \n", os)
 		fmt.Printf("Rocking the %s life \n", arch)
