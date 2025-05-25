@@ -24,6 +24,8 @@ func main() {
 	
 	case "android":
 		fmt.Printf("%s like true hackers   󰶤 󰶤 󰶤 \n", os)
+		fmt.Printf("Rocking the %s life \n", arch)
+
 	default:
 		fmt.Printf("%s \n", os)
 		fmt.Printf("Rocking the %s life \n", arch)
