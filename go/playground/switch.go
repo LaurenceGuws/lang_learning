@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 	"runtime"
 )
 
@@ -30,5 +31,16 @@ func main() {
 		fmt.Printf("%s \n", os)
 		fmt.Printf("Rocking the %s life \n", arch)
 		fmt.Println("Exotix systems have feelings 2 󱕼")
+	}
+	hour := time.Now().Hour()
+	switch {
+	case hour < 12:
+		fmt.Println("Why are you up this early???? Go back to bed! 󰒲")
+	
+	case hour < 17:
+		fmt.Println("Its time for codiong and your feeling yourself. You still need small commits ")
+
+	default:
+		fmt.Println("Stop over achiving . Nobody cares ")
 	}
 }
